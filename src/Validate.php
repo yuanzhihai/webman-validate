@@ -938,7 +938,7 @@ class Validate
             $ext = explode(',', $ext);
         }
 
-        return in_array(strtolower($file->getExtension()), $ext);
+        return in_array(strtolower($file->getUploadExtension()), $ext);
     }
 
     /**
