@@ -12,8 +12,9 @@ class Install
     /**
      * @var array
      */
-    protected static $pathRelation = array (
+    protected static $pathRelation = array(
         'config/plugin/yzh52521/validate' => 'config/plugin/yzh52521/validate',
+        'resource/translations'           => 'resource/translations',
     );
 
     /**
@@ -59,7 +60,7 @@ class Install
     public static function uninstallByRelation()
     {
         foreach (static::$pathRelation as $source => $dest) {
-            $path = base_path()."/$dest";
+            $path = base_path() . "/$dest";
             if (!is_dir($path) && !is_file($path)) {
                 continue;
             }
