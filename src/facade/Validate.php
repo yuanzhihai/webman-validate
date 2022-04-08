@@ -40,10 +40,12 @@ use think\facade\Db;
  * @method static bool fileMime(mixed $file, mixed $rule) 验证上传文件类型
  * @method static bool fileSize(mixed $file, mixed $rule) 验证上传文件大小
  * @method static bool image(mixed $file, mixed $rule) 验证图片的宽高及类型
+ * @method static bool json(mixed $value) 使用是否json格式
  * @method static bool dateFormat(mixed $value, mixed $rule) 验证时间和日期是否符合指定格式
  * @method static bool unique(mixed $value, mixed $rule, array $data = [], string $field = '') 验证是否唯一
  * @method static bool filter(mixed $value, mixed $rule) 使用filter_var方式验证
  * @method static bool requireIf(mixed $value, mixed $rule, array $data = []) 验证某个字段等于某个值的时候必须
+ * @method static bool requireIfNot(mixed $value, mixed $rule, array $data = []) 验证某个字段不等于某个值的时候必须
  * @method static bool requireCallback(mixed $value, mixed $rule, array $data = []) 通过回调方法验证某个字段是否必须
  * @method static bool requireWith(mixed $value, mixed $rule, array $data = []) 验证某个字段有值的情况下必须
  * @method static bool requireWithout(mixed $value, mixed $rule, array $data = []) 验证某个字段没有值的情况下必须
