@@ -6,6 +6,7 @@
 * 支持场景验证scene
 * 支持表单令牌token
 * 支持unique唯一性验证(基于TP think-orm Db类)
+* 支持图片验证
 
 ## 安装
 
