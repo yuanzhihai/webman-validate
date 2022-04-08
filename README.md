@@ -66,7 +66,6 @@ if (!$validate->check($data)) {
 ```
 /**
  * @desc 验证器助手函数
- * @param array $data 数据
  * @param string|array $validate 验证器类名或者验证规则数组
  * @param array $message 错误提示信息
  * @param bool $batch 是否批量验证
@@ -74,9 +73,9 @@ if (!$validate->check($data)) {
  * @return bool
  * @author yzh52521
  */
-function validate(array $data, $validate = '', array $message = [], bool $batch = false, bool $failException = true)
+function validate($validate = '', array $message = [], bool $batch = false, bool $failException = true)
 {
-    if (is_array($validate)) {
+    if (is_array($validate) || ''===$validate) {
         $v = new \yzh52521\validate\Validate();
         $v->rule($validate);
     } else {
@@ -88,9 +87,7 @@ function validate(array $data, $validate = '', array $message = [], bool $batch 
             $v->scene($scene);
         }
     }
-    $v->message($message);
-    $v->batch($batch);
-    return $v->failException($failException)->check($data);
+     return $v->message($message)->batch($batch)->failException($failException);
 }
 
 ```
