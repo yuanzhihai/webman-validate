@@ -102,6 +102,7 @@ class Validate
         'fileSize'    => 'filesize not match',
         'fileExt'     => 'extensions to upload is not allowed',
         'fileMime'    => 'mimetype to upload is not allowed',
+        'or'          => ':attribute At least one condition needs to be met',
     ];
 
     /**
@@ -1526,6 +1527,27 @@ class Validate
         }
 
         return is_scalar($value) && 1 === preg_match($rule, (string)$value);
+    }
+    
+    /**
+     * or规则不适用于排除字段，字段必选判断，字段存在相关规则
+     * @param $value 字段值
+     * @param $rule  验证规则 规则 'mobile,email'
+     * @param $data  数据
+     * @param $field 验证字段名
+     * @return bool
+     */
+    public function or($value,$rule,$data,$field):bool
+    {
+        $options = explode( ',',$rule );
+        foreach ( $options as $option ) {
+            $validator = new self();
+            $validator->rule( $field,$option );
+            if ($validator->check( [$field => $data[$field]] )) {
+                return true;
+            }
+        }
+        return false;
     }
 
     /**
