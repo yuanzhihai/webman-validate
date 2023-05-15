@@ -134,5 +134,5 @@ return [
     'invalid token'                                             => '令牌数据无效',
     'not conform to the rules'                                  => '规则错误',
     'record has update'                                         => '记录已经被更新了',
-    ':attribute At least one condition needs to be met'.        => ':attribute需要满足至少一个条件'
+    ':attribute At least one condition needs to be met'         => ':attribute需要满足至少一个条件'
 ];
