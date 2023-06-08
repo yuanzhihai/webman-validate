@@ -9,7 +9,8 @@
     }
   ],
   "require": {
-    "php": ">=7.2.0"
+    "php": ">=7.2.0",
+    "symfony/polyfill-php80": "^1.19"
   },
   "require-dev": {
     "workerman/webman-framework": "^1.2.1"
