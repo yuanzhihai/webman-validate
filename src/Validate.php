@@ -102,6 +102,9 @@ class Validate
         'fileSize'    => 'filesize not match',
         'fileExt'     => 'extensions to upload is not allowed',
         'fileMime'    => 'mimetype to upload is not allowed',
+        'startWith'   => ':attribute must start with :rule',
+        'endWith'     => ':attribute must end with :rule',
+        'contain'     => ':attribute must contain :rule',
         'or'          => ':attribute At least one condition needs to be met',
     ];
 
@@ -924,6 +927,42 @@ class Validate
         }
 
         return $this->filter( $value,[FILTER_VALIDATE_IP,'ipv6' == $rule ? FILTER_FLAG_IPV6 : FILTER_FLAG_IPV4] );
+    }
+
+    /**
+     * 检测是否以某个字符串开头
+     * @access public
+     * @param mixed $value 字段值
+     * @param string $rule  验证规则
+     * @return bool
+     */
+    public function startWith($value, string $rule): bool
+    {
+        return is_string($value) && str_starts_with($value, $rule);
+    }
+
+    /**
+     * 检测是否以某个字符串结尾
+     * @access public
+     * @param mixed $value 字段值
+     * @param string $rule  验证规则
+     * @return bool
+     */
+    public function endWith($value, string $rule): bool
+    {
+        return is_string($value) && str_ends_with($value, $rule);
+    }
+
+    /**
+     * 检测是否以包含某个字符串
+     * @access public
+     * @param mixed $value 字段值
+     * @param string $rule  验证规则
+     * @return bool
+     */
+    public function contain($value, string $rule): bool
+    {
+        return is_string($value) && str_contains($value, $rule);
     }
 
     /**
