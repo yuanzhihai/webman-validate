@@ -1649,7 +1649,7 @@ class Validate
         } elseif (str_starts_with( $type,'require' )) {
             $msg = $this->typeMsg['require'];
         } else {
-            $msg = $title.trans( 'not conform to the rules',[],'validate',config( 'translations.locale' ) );
+            $msg = $title.trans( 'not conform to the rules',[],'validate',config( 'translation.locale' ) );
         }
 
         if (is_array( $msg )) {
