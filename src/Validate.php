@@ -624,7 +624,7 @@ class Validate
                 if (!empty( $msg[$i] )) {
                     $message = $msg[$i];
                     if (is_string( $message ) && str_starts_with( $message,'{%' )) {
-                        $message = trans( substr( $message,2,-1 ),[],'validate',config( 'translations.locale' ) );
+                        $message = trans( substr( $message,2,-1 ),[],'validate',config( 'translation.locale' ) );
                     }
                 } else {
                     $message = $this->getRuleMsg( $field,$title,$info,$rule );
@@ -1670,9 +1670,9 @@ class Validate
     protected function parseErrorMsg(string $msg,$rule,string $title)
     {
         if (str_starts_with( $msg,'{%' )) {
-            $msg = trans( substr( $msg,2,-1 ),[],'validate',config( 'translations.locale' ) );
-        } elseif (trans( $msg,[],'validate',config( 'translations.locale' ) )) {
-            $msg = trans( $msg,[],'validate',config( 'translations.locale' ) );
+            $msg = trans( substr( $msg,2,-1 ),[],'validate',config( 'translation.locale' ) );
+        } elseif (trans( $msg,[],'validate',config( 'translation.locale' ) )) {
+            $msg = trans( $msg,[],'validate',config( 'translation.locale' ) );
         }
 
         if (is_array( $msg )) {
